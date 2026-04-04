@@ -1,0 +1,67 @@
+[
+  {
+    "znacka": "H",
+    "nazev": "Vodík",
+    "protonoveCislo": 1,
+    "atomovaHmotnost": 1.008,
+    "group": 1,
+    "period": 1,
+    "category": "nekov",
+    "boilingPoint": -252.87,
+    "meltingPoint": -259.16,
+    "state": "plyn",
+    "facts": "Nejlehčí a nejrozšířenější prvek ve vesmíru."
+  },
+  {
+    "znacka": "He",
+    "nazev": "Helium",
+    "protonoveCislo": 2,
+    "atomovaHmotnost": 4.0026,
+    "group": 18,
+    "period": 1,
+    "category": "vzácný plyn",
+    "boilingPoint": -268.93,
+    "meltingPoint": -272.2,
+    "state": "plyn",
+    "facts": "Používá se například v balóncích a kryogenice."
+  },
+  {
+    "znacka": "Fe",
+    "nazev": "Železo",
+    "protonoveCislo": 26,
+    "atomovaHmotnost": 55.845,
+    "group": 8,
+    "period": 4,
+    "category": "přechodný kov",
+    "boilingPoint": 2862,
+    "meltingPoint": 1538,
+    "state": "pevná látka",
+    "facts": "Patří mezi nejdůležitější kovy v průmyslu i ve stavebnictví."
+  },
+  {
+    "znacka": "Cl",
+    "nazev": "Chlor",
+    "protonoveCislo": 17,
+    "atomovaHmotnost": 35.45,
+    "group": 17,
+    "period": 3,
+    "category": "halogen",
+    "boilingPoint": -34.04,
+    "meltingPoint": -101.5,
+    "state": "plyn",
+    "facts": "Je reaktivní a používá se například k dezinfekci vody."
+  },
+  {
+    "znacka": "Si",
+    "nazev": "Křemík",
+    "protonoveCislo": 14,
+    "atomovaHmotnost": 28.085,
+    "group": 14,
+    "period": 3,
+    "category": "polokov",
+    "boilingPoint": 3265,
+    "meltingPoint": 1414,
+    "state": "pevná látka",
+    "facts": "Základní materiál pro polovodiče a čipy."
+  }
+]
