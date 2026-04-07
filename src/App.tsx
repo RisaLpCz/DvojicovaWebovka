@@ -1,10 +1,9 @@
-import './App.css'
+import Layout from './Layout';
 
-function App() {
-
-  return (
-      <h1>PeriodickaTabulka</h1>
-  )
+export default function App() {
+    return (
+        <Layout>
+            <></>
+        </Layout>
+    );
 }
-
-export default App
