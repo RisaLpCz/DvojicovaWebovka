@@ -1,20 +1,3 @@
-export type Element = {
-    znacka: string;
-    nazev: string;
-    protonoveCislo: number;
-    atomovaHmotnost: number;
-
-    group: number;
-    period: number | null;
-    category: ElementCategory;
-
-    boilingPoint: number;
-    meltingPoint: number;
-    state: string;
-
-    facts: string;
-}
-
 export type ElementCategory =
     | "alkalické kovy"
     | "kov alkalických zemin"
@@ -26,6 +9,23 @@ export type ElementCategory =
     | "halogen"
     | "vzácný plyn"
     | "nekov";
+
+export type Element = {
+    znacka: string;
+    nazev: string;
+    protonoveCislo: number;
+    atomovaHmotnost: number;
+
+    group: number;
+    period: number;
+    category: ElementCategory;
+
+    boilingPoint: number | null;
+    meltingPoint: number | null;
+    state: string;
+
+    facts: string;
+}
 
 export type ElementFilter = {
     category?: ElementCategory;
@@ -39,9 +39,16 @@ export type AppState = {
 
 export type ElementTileProps = {
     element: Element;
+    isHighlighted: boolean;
     onClick: (element: Element) => void;
 };
 
 export type ElementDetailProps = {
-    element: Element | null;
+    element: Element;
+    onBack: () => void;
+};
+
+export type SearchBarProps = {
+    onSearch: (value: string) => void;
+    initialValue?: string;
 };
