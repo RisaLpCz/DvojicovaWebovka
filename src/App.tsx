@@ -47,8 +47,6 @@ function App() {
 
     return (
         <Layout>
-            <h1>Periodická tabulka prvků</h1>
-
             <SearchBar onSearch={setSearch} initialValue={search} />
 
             <PeriodicTable

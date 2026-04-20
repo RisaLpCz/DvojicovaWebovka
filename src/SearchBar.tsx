@@ -15,7 +15,7 @@ function SearchBar({ onSearch, initialValue = "" }: SearchBarProps) {
     };
 
     return (
-        <div>
+        <div className="search-bar-wrapper">
             <input
                 type="text"
                 placeholder="Hledat prvek"

@@ -2,22 +2,25 @@ import type { ElementDetailProps } from "./types.ts";
 
 function ElementDetail({ element, onBack }: ElementDetailProps) {
     return (
-        <div style={{ padding: "24px" }}>
-            <h1>
-                {element.nazev} ({element.znacka})
-            </h1>
-
-            <p><strong>Protonové číslo:</strong> {element.protonoveCislo}</p>
-            <p><strong>Atomová hmotnost:</strong> {element.atomovaHmotnost}</p>
-            <p><strong>Skupina:</strong> {element.group}</p>
-            <p><strong>Perioda:</strong> {element.period}</p>
-            <p><strong>Kategorie:</strong> {element.category}</p>
-            <p><strong>Teplota varu:</strong> {element.boilingPoint ?? "Neznámá"} °C</p>
-            <p><strong>Teplota tání:</strong> {element.meltingPoint ?? "Neznámá"} °C</p>
-            <p><strong>Skupenství:</strong> {element.state}</p>
-            <p><strong>Zajímavost:</strong> {element.facts}</p>
-
-            <button onClick={onBack}>Go back</button>
+        <div className="element-detail-wrapper">
+            <button className="detail-back-btn" onClick={onBack}>← Zpět</button>
+            <div className="detail-header">
+                <div className="detail-symbol-big">{element.znacka}</div>
+                <div className="detail-title">
+                    <h1>{element.nazev}</h1>
+                    <span>{element.category}</span>
+                </div>
+            </div>
+            <div className="detail-grid">
+                <div className="detail-card"><div className="detail-card-label">Protonové číslo</div><div className="detail-card-value">{element.protonoveCislo}</div></div>
+                <div className="detail-card"><div className="detail-card-label">Atomová hmotnost</div><div className="detail-card-value">{element.atomovaHmotnost} u</div></div>
+                <div className="detail-card"><div className="detail-card-label">Skupina</div><div className="detail-card-value">{element.group}</div></div>
+                <div className="detail-card"><div className="detail-card-label">Perioda</div><div className="detail-card-value">{element.period}</div></div>
+                <div className="detail-card"><div className="detail-card-label">Bod tání</div><div className="detail-card-value">{element.meltingPoint ?? "?"} °C</div></div>
+                <div className="detail-card"><div className="detail-card-label">Bod varu</div><div className="detail-card-value">{element.boilingPoint ?? "?"} °C</div></div>
+                <div className="detail-card"><div className="detail-card-label">Skupenství</div><div className="detail-card-value">{element.state}</div></div>
+            </div>
+            <div className="detail-facts">{element.facts}</div>
         </div>
     );
 }
