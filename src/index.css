@@ -342,7 +342,6 @@ body {
 
 .element-tile {
     animation: fadeIn 0.3s ease both;
-    animation-delay: calc(var(--tile-index, 0) * 15ms);
 }
 
 .element-tile:hover {
@@ -354,13 +353,16 @@ body {
 }
 
 .element-detail-wrapper {
-    animation: fadeIn 0.35s ease both;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .detail-card {
-    animation: fadeIn 0.3s ease both;
-    animation-delay: calc(var(--card-index, 0) * 40ms);
-    transition: background 0.2s;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px;
 }
 
 .detail-card:hover {
@@ -382,7 +384,13 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2); }
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(74, 158, 255, 0.1);
+    }
+}
 
 .periodic-table > div {
     overflow: visible;

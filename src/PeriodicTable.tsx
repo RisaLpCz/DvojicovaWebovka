@@ -22,8 +22,8 @@ function PeriodicTable({ elements, search, onElementClick }: PeriodicTableProps)
                     <div
                         key={element.protonoveCislo}
                         style={{
-                            gridColumn: element.group,
-                            gridRow: element.period,
+                            gridColumn: element.group ?? undefined,
+                            gridRow: element.period ?? undefined,
                         }}
                     >
                         <ElementTile
