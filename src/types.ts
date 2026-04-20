@@ -16,7 +16,7 @@ export type Element = {
     protonoveCislo: number;
     atomovaHmotnost: number;
 
-    group: number;
+    group: number | null;
     period: number;
     category: ElementCategory;
 
