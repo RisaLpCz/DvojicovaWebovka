@@ -6,6 +6,13 @@ import ElementDetail from "./ElementDetail";
 import Legend from "./Legend";
 import type { Element } from "./types";
 
+const ELEMENT_QUERY_PARAM = "element";
+
+const getElementSymbolFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(ELEMENT_QUERY_PARAM);
+};
+
 function App() {
     const [elements, setElements] = useState<Element[]>([]);
     const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -32,15 +39,58 @@ function App() {
     }, []);
 
     useEffect(() => {
+        if (elements.length === 0) {
+            return;
+        }
+
+        const syncSelectedElementFromUrl = () => {
+            const selectedSymbol = getElementSymbolFromUrl();
+            const elementFromUrl = selectedSymbol
+                ? elements.find((element) => element.znacka.toLowerCase() === selectedSymbol.toLowerCase())
+                : null;
+
+            setSelectedElement(elementFromUrl ?? null);
+        };
+
+        syncSelectedElementFromUrl();
+        window.addEventListener("popstate", syncSelectedElementFromUrl);
+
+        return () => {
+            window.removeEventListener("popstate", syncSelectedElementFromUrl);
+        };
+    }, [elements]);
+
+    useEffect(() => {
         localStorage.setItem("search", search);
     }, [search]);
+
+    const selectElement = (element: Element) => {
+        const params = new URLSearchParams(window.location.search);
+        params.set(ELEMENT_QUERY_PARAM, element.znacka);
+
+        window.history.pushState(null, "", `${window.location.pathname}?${params.toString()}`);
+        setSelectedElement(element);
+    };
+
+    const clearSelectedElement = () => {
+        const params = new URLSearchParams(window.location.search);
+        params.delete(ELEMENT_QUERY_PARAM);
+
+        const searchParams = params.toString();
+        const nextUrl = searchParams
+            ? `${window.location.pathname}?${searchParams}`
+            : window.location.pathname;
+
+        window.history.pushState(null, "", nextUrl);
+        setSelectedElement(null);
+    };
 
     if (selectedElement) {
         return (
             <Layout>
                 <ElementDetail
                     element={selectedElement}
-                    onBack={() => setSelectedElement(null)}
+                    onBack={clearSelectedElement}
                 />
             </Layout>
         );
@@ -53,7 +103,7 @@ function App() {
             <PeriodicTable
                 elements={elements}
                 search={search}
-                onElementClick={setSelectedElement}
+                onElementClick={selectElement}
             />
         </Layout>
     );
