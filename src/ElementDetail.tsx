@@ -3,7 +3,6 @@ import type { ElementDetailProps } from "./types.ts";
 function ElementDetail({ element, onBack }: ElementDetailProps) {
     return (
         <div className="element-detail-wrapper">
-            <button className="detail-back-btn" onClick={onBack}>← Zpět</button>
             <div className="detail-header">
                 <div className="detail-symbol-big">{element.znacka}</div>
                 <div className="detail-title">
@@ -21,6 +20,7 @@ function ElementDetail({ element, onBack }: ElementDetailProps) {
                 <div className="detail-card"><div className="detail-card-label">Skupenství</div><div className="detail-card-value">{element.state}</div></div>
             </div>
             <div className="detail-facts">{element.facts}</div>
+            <button className="detail-back-btn" onClick={onBack}>← Zpět</button>
         </div>
     );
 }

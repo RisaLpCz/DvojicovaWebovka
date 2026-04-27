@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import PeriodicTable from "./PeriodicTable";
 import SearchBar from "./SearchBar";
 import ElementDetail from "./ElementDetail";
+import Legend from "./Legend";
 import type { Element } from "./types";
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
     return (
         <Layout>
             <SearchBar onSearch={setSearch} initialValue={search} />
-
+            <Legend />
             <PeriodicTable
                 elements={elements}
                 search={search}
