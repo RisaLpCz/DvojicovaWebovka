@@ -23,7 +23,7 @@ function App() {
     useEffect(() => {
         const loadElements = async () => {
             try {
-                const response = await fetch("/data/elements.json");
+                const response = await fetch(`${import.meta.env.BASE_URL}data/elements.json`)
                 if (!response.ok) {
                     throw new Error("Failed to fetch elements");
                 }
